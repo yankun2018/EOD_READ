@@ -11,6 +11,28 @@
 
 各算法的出处见 [REFERENCES.md](REFERENCES.md)。
 
+## 重新打包
+
+`tools/build_package.py` 能把工具箱打成一个解压即用的 zip，**只用 Python
+标准库**（不需要 numpy / PIL / MATLAB）。在仓库根执行：
+
+```bash
+python tools/build_package.py                                  # 不带光谱
+python tools/build_package.py --spectrum 你的光谱.csv            # 完整版
+python tools/build_package.py --bscan-step 5 --spectrum-rows 1200
+```
+
+数据从哪来：
+
+| | |
+|---|---|
+| volume / analy | 仓库的 `test_data/`，随仓库提交，必需 |
+| bscan | **从 volume + analy 现场生成**（脚本自带一个纯标准库的 PNG 编码器），生成出来的与原来那批 `pic_bscan` 的 PNG **逐像素相同**，所以不必额外保存那 42 MB |
+| spectrum | 仓库里没有，用 `--spectrum` 指一份；不给就跳过，包里不带光谱，对应 demo 会自动跳过 |
+
+也就是说**只凭这个仓库就能打出一个可用的包**：不带光谱时自测 134/163 项
+通过（缺的 29 项是光谱相关），带上光谱是 163 项全过。
+
 ## 文件
 
 | 文件 | 作用 |
