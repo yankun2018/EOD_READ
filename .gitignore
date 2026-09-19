@@ -1,0 +1,20 @@
+# 打包产物：内容 = Matlab_OCT/ 的脚本 + test_data/ 里已在版本库的数据，
+# 没必要再往 git 里塞一份 30 MB 的二进制。发布走 GitHub Release 附件。
+Matlab_OCT.zip
+
+# demo / 批处理的输出
+Matlab_OCT/out/
+Matlab_OCT/data/
+**/seg_overlay/
+**/seg_compare/
+**/gray_clean/
+**/enface/
+**/analy/
+**/report/
+layers.csv
+layers.dat
+report.txt
+
+# 解压出来的副本、临时目录
+新建文件夹/
+*.tmp

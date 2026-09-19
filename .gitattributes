@@ -1,0 +1,15 @@
+# 文本一律用 LF，跨平台 checkout 出来一致。
+# MATLAB 两种行尾都能读，但 test/golden.txt 是自测的金标准数据，
+# 行尾飘了容易出莫名其妙的比对问题，统一掉最省心。
+*.m    text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf
+*.py   text eol=lf
+
+# 二进制别碰
+*.dat  binary
+*.raw  binary
+*.png  binary
+*.gif  binary
+*.exe  binary
+*.zip  binary
